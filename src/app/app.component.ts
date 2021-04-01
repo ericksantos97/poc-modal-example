@@ -6,15 +6,12 @@ import { ModalService } from './modal/modal.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  bodyText: string;
+  backdrop = false;
+  keyboard = false;
 
   constructor(private modalService: ModalService) { }
-
-  ngOnInit() {
-    this.bodyText = 'This text can be updated in modal 1';
-  }
 
   openModal(id: string) {
     this.modalService.open(id);
@@ -22,5 +19,9 @@ export class AppComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
+  }
+
+  saveForm(): void {
+    alert('Formulário salvo com sucesso !');
   }
 }

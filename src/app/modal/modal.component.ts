@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ModalService } from './modal.service';
 
 @Component({
@@ -7,12 +7,14 @@ import { ModalService } from './modal.service';
   styleUrls: ['./modal.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, OnDestroy {
 
   @Input() id: string;
-  private element: HTMLElement;
+  @Input() backdrop: boolean = true;
+  @Input() keyboard: boolean = true;
+  private element: any;
 
-  constructor(private modalService: ModalService, private el: ElementRef) {
+  constructor(private modalService: ModalService, public el: ElementRef) {
     this.element = el.nativeElement;
   }
 
@@ -38,6 +40,20 @@ export class ModalComponent implements OnInit {
   public close(): void {
     this.element.style.display = 'none';
     document.body.classList.remove('gns-modal-open');
+  }
+
+  @HostListener('document:keydown.escape', ['$event'])
+  onKeydownHandler(event: KeyboardEvent) {
+    if (this.keyboard && event.key === 'Escape') {
+      this.close();
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClick(event: any) {
+    if (this.backdrop && event.target.className === 'gns-modal') {
+      this.close();
+    }
   }
 
   public ngOnDestroy(): void {
