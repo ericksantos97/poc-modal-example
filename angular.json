@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "modal-example"
+  "defaultProject": "modal-example",
+  "cli": {
+    "analytics": false
+  }
 }
