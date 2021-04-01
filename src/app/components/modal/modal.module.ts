@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { ModalComponent } from './modal.component';
 
 
@@ -7,9 +6,7 @@ import { ModalComponent } from './modal.component';
     declarations: [
         ModalComponent,
     ],
-    imports: [
-        BrowserModule,
-    ],
+    imports: [],
     exports: [
         ModalComponent
     ],

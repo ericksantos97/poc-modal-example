@@ -1,63 +1,15 @@
-<!-----------------------MODAL COM SERVIÇO BASEADO EM SELETOR-------------------------->
-
-<div class="col-md-2">
-  <h1>Modal's</h1>
-  <div class="d-flex justify-content-between">
-    <button (click)="openModal('custom-modal-1')" class="btn btn-secondary">Open Modal 1</button>
-    <button (click)="openModal('custom-modal-2')" class="btn btn-success">Open Modal 2</button>
-  </div>
-</div>
-
-<gns-modal id="custom-modal-1">
-  <div class="row mt-1">
-    <div class="col">
-      <h2>Form Example</h2>
-      <form>
-        <div class="form-group">
-          <label>Texto</label>
-          <input type="text" class="form-control" placeholder="Placeholder campo texto">
-        </div>
-
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input">
-          <label class="form-check-label">Checkbox</label>
-        </div>
-
-        <div class="form-group">
-          <label>Combobox</label>
-          <select class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Textarea</label>
-          <textarea class="form-control" rows="3"></textarea>
-        </div>
-
-        <button (click)="saveForm()" class="btn btn-primary">Save</button>
-        <button (click)="closeModal('custom-modal-1')" class="btn btn-default ml-2">Cancel</button>
-      </form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">EXAMPLES</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink="/modal-one">Version One<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" routerLink="/modal-two">Version Two</a>
+        <a class="nav-item nav-link" routerLink="/modal-three">Version Three</a>
+      </div>
     </div>
-  </div>
-</gns-modal>
+  </nav>
 
-<gns-modal id="custom-modal-2" [backdrop]="backdrop" [keyboard]="keyboard">
-  <div class="jumbotron">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-      featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-
-    <button (click)="closeModal('custom-modal-2')" class="btn btn-danger ml-2">Close</button>
-  </div>
-</gns-modal>
-
-<hr>
-
-<!-----------------------MODAL COM SERVIÇO BASEADO EM SELETOR-------------------------->
+  <router-outlet></router-outlet>
